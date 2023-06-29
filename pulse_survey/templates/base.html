@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <head></head>
+    <head>
+      {% load static %}
+      <img src="{% static 'images/i-dot-ai-logo.svg' %}" alt="Logo">
+    </head>
       {% block content %}
       {% endblock %}
     <footer></footer>

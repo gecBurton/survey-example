@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf import settings
+from django.conf.urls.static import static
 from pulse_survey.survey import views
 
 
@@ -30,3 +31,7 @@ urlpatterns = [
     path("survey/feedback/", views.FeedbackView.as_view(), name="feedback"),
     path("survey/end/", views.end_view, name="end")
 ]
+
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
